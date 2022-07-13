@@ -45,6 +45,10 @@ def get_item(self):
     passed = False
     while not passed:
         try:
+            # XXX begin changes, turned complex structures to str
+            context_dict['account_bills'] = str(context_dict['account_bills'])
+            context_dict['account_transactions'] = str(context_dict['account_transactions'])
+            # XXX end changes
             JSON = json.dumps(context_dict)
             passed = True
         except Exception, error:
